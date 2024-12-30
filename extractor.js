@@ -21,7 +21,7 @@ function get_data(){
         if(test_regex.test(data[i])){ 
             data[i] = data[i].replace(replace_regex,"")
         } else {
-            console.log("Invalid string found!")
+            console.log("Invalid string found! ", data[i])
             return "error"
         }
     }
@@ -37,7 +37,7 @@ function get_numbers(){
     var test_regex = new RegExp("[0-9]{1,2}")
     for (var i = 0; i < numbers.length; i++){
         if(!test_regex.test(numbers[i])){
-            console.log("Invalid number found!")
+            console.log("Invalid number found! ", numbers[i])
             return "error"
         }
     }
@@ -64,6 +64,6 @@ function write_result(title, lines, file_name){
     for (var number of numbers){
         tmp_array.push(data[number - 1])
     }
-    write_result("Anime current_season 20XX", tmp_array, `${additional_path}anime-current_season-20XX.csv`)
-    console.log("Everything done!")
+    write_result("Anime winter 2025", tmp_array, `${additional_path}anime-winter-2025.csv`)
+	console.log("Everything done!")
 })()
