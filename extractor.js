@@ -64,6 +64,6 @@ function write_result(title, lines, file_name){
     for (var number of numbers){
         tmp_array.push(data[number - 1])
     }
-    write_result("Anime summer 2025", tmp_array, `${additional_path}anime-summer-2025.csv`)
+    write_result("Anime autumn 2025", tmp_array, `${additional_path}anime-autumn-2025.csv`)
 	console.log("Everything done!")
 })()
