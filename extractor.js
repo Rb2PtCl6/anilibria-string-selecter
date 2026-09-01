@@ -4,6 +4,10 @@ const additional_path = `${__dirname}/`
 const data_path = `${additional_path}data.txt`
 const numbers_path = `${additional_path}numbers.txt`
 
+const seasons = ['winter','spring','summer','autumn']
+const current_season = seasons[3]
+const year = 2026
+
 function is_necessary_exist(){
     return (fs.existsSync(data_path) && fs.existsSync(numbers_path))
 }
@@ -64,6 +68,12 @@ function write_result(title, lines, file_name){
     for (var number of numbers){
         tmp_array.push(data[number - 1])
     }
-    write_result("Anime summer 2026", tmp_array, `${additional_path}anime-summer-2026.csv`)
+	var name_in_csv = `Anime ${current_season} ${year}`
+	var file_name = `${additional_path}anime-${current_season}-${year}.csv`
+	console.log({name_in_csv, file_name})
+    write_result(name_in_csv, tmp_array, file_name)
+	var dir_name = `${additional_path}anime-${current_season}-${year}`
+	console.log({dir_name})
+	if (!fs.existsSync(dir_name)) fs.mkdirSync(dir_name)
 	console.log("Everything done!")
 })()
